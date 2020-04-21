@@ -3,9 +3,30 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createGlobalStyle } from 'styled-components';
+import { mainColor, greyColor, backgroundColor } from './styledConstants';
+
+const GlogalStyle = createGlobalStyle`
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: ${backgroundColor};
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: ${greyColor};
+    border-radius: 8px;
+    &:hover {
+      background-color: ${mainColor};
+    }
+  }
+`;
 
 ReactDOM.render(
   <React.StrictMode>
+    <GlogalStyle />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
