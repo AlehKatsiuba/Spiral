@@ -14,9 +14,9 @@ export const Card = styled.div`
     border: 0;
     border-top: 1px solid #ccc;
   }
-  & > :not(:first-child) {
+  /* & > :not(:first-child) {
     margin-top: 10px;
-  }
+  } */
 `;
 
 const StyledCardInfo = styled.div`
@@ -86,7 +86,7 @@ export const CardContent = styled.div`
 `;
 
 export const CardDescription = styled.p`
-  padding: 0 10px;
+  padding: 10px;
 `;
 
 export const CardFooter = styled.div`

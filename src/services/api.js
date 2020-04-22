@@ -1,4 +1,4 @@
-import { accounts, user } from "./moks";
+import { accounts, user, payDay } from "./mocks";
 import { delayPromise, generateInt, emulateServerResponse } from "./util";
 
 class ApiSevice {
@@ -13,6 +13,10 @@ class ApiSevice {
 
   fetchAccounts() {
     return emulateServerResponse(accounts);
+  }
+
+  fetchPayDay() {
+    return emulateServerResponse(payDay);
   }
 }
 

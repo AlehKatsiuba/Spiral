@@ -11,6 +11,7 @@ export function* logIn() {
   yield takeLatest(LOGIN_REQUESTED, function* ({ login, password }) {
     try {
       const user = yield call(() => apiSevice.logIn(login, password));
+      localStorage.setItem('user', JSON.stringify(user));
       yield put({ type: LOGIN_SUCCEEDED, ...user });
     } catch (e) {
       yield put({ type: LOGIN_FAILED, message: e.message });

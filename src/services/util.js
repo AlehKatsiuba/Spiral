@@ -12,5 +12,5 @@ export function generateInt(min, max) {
 }
 
 export function emulateServerResponse(data) {
-  return Promise.resolve(data).then(delayPromise(generateInt(100, 1000)));
+  return Promise.resolve(data).then(delayPromise(generateInt(250, 2000)));
 }

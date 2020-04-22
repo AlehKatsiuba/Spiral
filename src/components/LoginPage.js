@@ -7,7 +7,6 @@ import { Form, Label } from "./Form";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../store/actions";
-import { LOGIN_SUCCEEDED } from "../store/types";
 import { useAuthorisation } from "../hooks/useAuthorisation";
 
 const StyledLoginPage = styled.div`
@@ -36,14 +35,8 @@ export function LoginPage() {
   useEffect(() => {
     if (user) {
       history.push('/home');
-      localStorage.setItem('user', JSON.stringify(user));
     }
   });
-
-  /* const savedUser = localStorage.getItem('user');
-  if (savedUser) {
-    dispatch({ type: LOGIN_SUCCEEDED, ...JSON.parse(savedUser) });
-  } */
 
   return (
     <StyledLoginPage>
@@ -66,7 +59,11 @@ export function LoginPage() {
               placeholder="Password"
             />
           </Label>
-          <Button onClick={() => { dispatch(logIn(login, password)) }}>LOGIN</Button>
+          <Button onClick={(e) => {
+            e.preventDefault();
+            set({ login: '', password: '' });
+            dispatch(logIn(login, password))
+          }}>LOGIN</Button>
         </Form>
       </div>
     </StyledLoginPage>

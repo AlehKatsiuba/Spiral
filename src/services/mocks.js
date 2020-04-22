@@ -11,3 +11,8 @@ export const user = {
   name: 'Test User',
   avatar: 'https://i1.pngguru.com/preview/137/834/449/cartoon-cartoon-character-avatar-drawing-film-ecommerce-facial-expression-png-clipart.jpg'
 }
+
+export const payDay = {
+  employerName: 'Facebook Inc',
+  count: 3000,
+}
