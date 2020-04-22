@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import { greyColor } from "../styledConstants";
+import { Image } from './Image';
 
 export const Card = styled.div`
   min-width: 275px;
@@ -25,11 +26,7 @@ const StyledCardInfo = styled.div`
   align-items: center;
   color: ${props => props.fontColor || 'black'};
   background-color: ${props => props.backgroundColor || 'white'};
-  .image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: center / contain no-repeat;
+  ${Image} {
     margin-right: 20px;
   }
   .title {
@@ -47,10 +44,21 @@ const StyledCardInfo = styled.div`
   }
 `;
 
-export function CardInfo({ title, subtitle, value, imageUrl, ...rest }) {
+export function CardInfo({ title, subtitle, value, image, ...rest }) {
+  let imageNode;
+  if (typeof image === 'string') {
+    imageNode = <Image
+      width="40px"
+      height="40px"
+      imageUrl={image}
+      circle
+    />
+  } else {
+    imageNode = image;
+  }
   return (
     <StyledCardInfo {...rest}>
-      {imageUrl && <div className="image" style={{ backgroundImage: `url(${imageUrl})` }}></div>}
+      {imageNode}
       <div>
         <div className="title">{title}</div>
         <div className="subtitle">{subtitle}</div>
@@ -66,10 +74,10 @@ export const CardList = styled.div`
   }
 `;
 
-export const CardMedia = styled.div`
+export const CardMedia = styled(Image)`
   background: center / cover no-repeat;
-  background-image: url(${props => props.imageUrl});
-  min-height: 200px;
+  background-image: url(${props => props.image});
+  height: 200px;
 `;
 
 export const CardContent = styled.div`

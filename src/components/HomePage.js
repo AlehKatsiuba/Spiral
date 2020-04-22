@@ -30,7 +30,17 @@ export function HomePage() {
       <Greeting className="greeting" userName="Danny" />
       <div className="cards">
         <AccountOverviewCard balances={accounts ?? []} />
-        <GivingImpactCard />
+        <GivingImpactCard
+          titleImage="https://cms-tc.pbskids.org/parents/expert-tips-and-advice/helping-young-children-learn-to-make-friends-hero.jpg?mtime=20181008025027"
+          backgroundImage="https://cms-tc.pbskids.org/parents/expert-tips-and-advice/helping-young-children-learn-to-make-friends-hero.jpg?mtime=20181008025027"
+          title="ST Jude"
+          subtitle="Your giving impact 5m ago"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Integer luctus ligula quis mollis rhoncus. Nulla facilisi.
+        Donec consectetur lacus vel quam ullamcorper egestas.
+        Donec ultricies ligula velit, quis maximus libero hendrerit bibendum.
+        Nullam rhoncus elit vitae metus auctor lobortis. Nam egestas nisl vitae ornare convallis."
+        />
         <RecentTransactionsCard />
         <PayDayCard />
         <UpcomingBigPaymentsCard />
@@ -58,7 +68,7 @@ const StyledAccountOverviewCard = styled(CardContent)`
   }
 `;
 
-export function AccountOverviewCard({ balances }) {
+export function AccountOverviewCard({ balances = [] }) {
   const totalCash = balances.reduce((sum, balance) => sum + balance.count, 0);
   return (
     <Card>
@@ -68,29 +78,25 @@ export function AccountOverviewCard({ balances }) {
         <div className="total">Total Available cash</div>
       </StyledAccountOverviewCard>
       <CardList>
-        {balances.map(({ name, type, count }) => <CardInfo title={name} subtitle={type} value={`$${count}`} />)}
+        {balances.map(({ id, name, type, count }) => <CardInfo key={id} title={name} subtitle={type} value={`$${count}`} />)}
       </CardList>
     </Card>
   )
 }
 
-export function GivingImpactCard() {
+export function GivingImpactCard({ titleImage, backgroundImage, title, subtitle, description }) {
   return (
     <Card>
       <CardInfo
-        imageUrl="https://cms-tc.pbskids.org/parents/expert-tips-and-advice/helping-young-children-learn-to-make-friends-hero.jpg?mtime=20181008025027"
-        title="ST Jude"
-        subtitle="Your giving impact 5m ago"
+        image={titleImage}
+        title={title}
+        subtitle={subtitle}
       />
       <CardMedia
-        imageUrl="https://cms-tc.pbskids.org/parents/expert-tips-and-advice/helping-young-children-learn-to-make-friends-hero.jpg?mtime=20181008025027"
+        image={backgroundImage}
       />
       <CardDescription>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Integer luctus ligula quis mollis rhoncus. Nulla facilisi.
-        Donec consectetur lacus vel quam ullamcorper egestas.
-        Donec ultricies ligula velit, quis maximus libero hendrerit bibendum.
-        Nullam rhoncus elit vitae metus auctor lobortis. Nam egestas nisl vitae ornare convallis.
+        {description}
       </CardDescription>
       <CardFooter>
         <Button>Share to spread the world</Button>
@@ -99,11 +105,12 @@ export function GivingImpactCard() {
   );
 };
 
-export function RecentTransactionsCard() {
+export function RecentTransactionsCard({ transactions = [] }) {
   return (
     <Card>
       <CardInfo title="Recent Transactions" subtitle="Jun 29" backgroundColor={mainColor} fontColor="white" />
       <CardList>
+        {transactions.map(({ id, name, type, count }) => <CardInfo key={id} title={name} subtitle={type} value={`$${count}`} />)}
         <CardInfo title="Cheking" subtitle="Main account (...0353)" value="$1,1500.20" />
         <CardInfo title="Cheking" subtitle="Main account (...0353)" value="$1,1500.20" />
         <CardInfo title="Cheking" subtitle="Main account (...0353)" value="$1,1500.20" />
@@ -119,7 +126,7 @@ export function PayDayCard() {
   return (
     <Card>
       <CardInfo title="It's your payday" subtitle="Jul 31" fontColor="white" backgroundColor={greenColor} />
-      <CardMedia imageUrl="" />
+      <CardMedia image="" />
       <CardFooter>
         <Button color={greenColor}>See more transactions</Button>
       </CardFooter>
@@ -127,11 +134,12 @@ export function PayDayCard() {
   )
 }
 
-export function UpcomingBigPaymentsCard() {
+export function UpcomingBigPaymentsCard({ payments = [] }) {
   return (
     <Card>
       <CardInfo title="Upcoming big payments card" subtitle="Jun 29" fontColor="white" backgroundColor={mainColor} />
       <CardList>
+        {payments.map(({ id, name, type, count }) => <CardInfo key={id} title={name} subtitle={type} value={`$${count}`} />)}
         <CardInfo title="Cheking" subtitle="Main account (...0353)" value="$1,1500.20" />
         <CardInfo title="Cheking" subtitle="Main account (...0353)" value="$1,1500.20" />
         <CardInfo title="Cheking" subtitle="Main account (...0353)" value="$1,1500.20" />

@@ -5,6 +5,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createGlobalStyle } from 'styled-components';
 import { mainColor, greyColor, backgroundColor } from './styledConstants';
+import store, { history } from "./store/store";
+import { ConnectedRouter } from "connected-react-router";
+import { Provider } from "react-redux";
 
 const GlogalStyle = createGlobalStyle`
   ::-webkit-scrollbar {
@@ -27,7 +30,11 @@ const GlogalStyle = createGlobalStyle`
 ReactDOM.render(
   <React.StrictMode>
     <GlogalStyle />
-    <App />
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

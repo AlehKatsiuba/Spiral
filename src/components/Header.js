@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { mainColor } from '../styledConstants';
 import { useHistory } from 'react-router-dom';
 import { Image } from './Image';
+import { useSelector, useDispatch } from 'react-redux';
+import { useAuthorisation } from '../hooks/useAuthorisation';
+import { logOut } from '../store/actions';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -29,20 +32,28 @@ const StyledHeader = styled.header`
       align-items: center;
       max-width: 1080px;
       .user {
-        flex: 0 0 50px;
+        display: flex;
+        flex: 0 0 300px;
         margin: 0 10px;
+        justify-content: flex-end;
+        .name {
+          font-size: 20px;
+        }
         ${Image} {
-          margin: 5px;
+          margin: 5px 5px 5px 20px;
+          flex: 0 0 40px;
         }
       }
     }
   }
 `;
 
-const defautAvatar = 'https://i1.pngguru.com/preview/137/834/449/cartoon-cartoon-character-avatar-drawing-film-ecommerce-facial-expression-png-clipart.jpg';
+const defautAvatar = 'https://cdn0.iconfinder.com/data/icons/avatar-vol-2-4/512/2-512.png';
 
 export function Header({ className }) {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const user = useAuthorisation(state => state.user);
   return (
     <StyledHeader className={className}>
       <div className="header-logo">
@@ -51,12 +62,13 @@ export function Header({ className }) {
       <div className="header">
         <div className="header-content">
           <div className="user">
+            <div className="name">{user ? user.name : ''}</div>
             <Image
               width='40px'
               height="40px"
-              imageUrl={defautAvatar}
+              imageUrl={user ? user.avatar : defautAvatar}
               circle
-              onClick={() => history.push('login')}
+              onClick={() => dispatch(logOut())}
             />
           </div>
         </div>
