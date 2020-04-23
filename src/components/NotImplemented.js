@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 
 const StyledNotImplementedPage = styled.div`
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 50px);
   display: flex;
   flex-direction: column;
   justify-content: center;

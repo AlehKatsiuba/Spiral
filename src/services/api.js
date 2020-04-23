@@ -1,4 +1,4 @@
-import { accounts, user, payDay } from "./mocks";
+import { accounts, user, payDay, chekingTransactions } from "./mocks";
 import { delayPromise, generateInt, emulateServerResponse } from "./util";
 
 class ApiSevice {
@@ -17,6 +17,15 @@ class ApiSevice {
 
   fetchPayDay() {
     return emulateServerResponse(payDay);
+  }
+
+  fetchChekingTransactions() {
+    return emulateServerResponse(chekingTransactions)
+      .then(days =>
+        days.map(day => ({
+          ...day, date: new Date(day.date)
+        }))
+      );
   }
 }
 

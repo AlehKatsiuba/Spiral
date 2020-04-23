@@ -6,14 +6,12 @@ export function useAuthorisation(userSelector, deps) {
   const user = useSelector(userSelector);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (!user) {
-      const savedUser = JSON.parse(localStorage.getItem('user'));
-      if (savedUser) {
-        dispatch({ type: LOGIN_SUCCEEDED, ...savedUser });
-      }
+  if (!user) {
+    const savedUser = JSON.parse(localStorage.getItem('user'));
+    if (savedUser) {
+      dispatch({ type: LOGIN_SUCCEEDED, ...savedUser });
     }
-  }, deps);
+  }
 
   return user;
 }

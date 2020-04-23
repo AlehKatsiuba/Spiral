@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import { mainColor } from '../styledConstants';
 import { useHistory } from 'react-router-dom';
 import { Image } from './Image';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useAuthorisation } from '../hooks/useAuthorisation';
 import { logOut } from '../store/actions';
+import spiralLogo from '../static/SpiralLogo.jpg'
 
 const StyledHeader = styled.header`
   display: flex;
@@ -17,11 +18,16 @@ const StyledHeader = styled.header`
   font-size: 26px;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
   .header-logo {
+    display: flex;
     flex: 1 1 200px;
-    text-align: right;
     margin-right: 30px;
+    align-items: center;
+    justify-content: flex-end;
     .logo {
-      padding-right: 10px;
+      padding: 0 10px;
+    }
+    img {
+      padding-left: 10px;
     }
   }
   .header {
@@ -31,6 +37,10 @@ const StyledHeader = styled.header`
       justify-content: flex-end;
       align-items: center;
       max-width: 1080px;
+      padding-right: 10%;
+      @media only screen and (max-width: 730px) {
+        padding-right: 0;
+      }
       .user {
         display: flex;
         flex: 0 0 300px;
@@ -38,10 +48,14 @@ const StyledHeader = styled.header`
         justify-content: flex-end;
         .name {
           font-size: 20px;
+          @media only screen and (max-width: 730px) {
+            display: none;
+          }
         }
         ${Image} {
           margin: 5px 5px 5px 20px;
           flex: 0 0 40px;
+          box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
         }
       }
     }
@@ -57,6 +71,13 @@ export function Header({ className }) {
   return (
     <StyledHeader className={className}>
       <div className="header-logo">
+        <img src={spiralLogo} height="40px" />
+        {/* <Image
+          width='40px'
+          height="40px"
+          imageUrl={spiralLogo}
+          onClick={() => history.push('/home')}
+        /> */}
         <div className="logo">Spiral</div>
       </div>
       <div className="header">

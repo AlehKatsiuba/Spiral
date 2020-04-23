@@ -7,8 +7,9 @@ import { HomePage } from './HomePage';
 import { NotImplementedPage } from './NotImplemented';
 import { Header } from './Header';
 import { NavPanel } from './NavPanel';
-import { useSelector } from 'react-redux';
 import { useAuthorisation } from '../hooks/useAuthorisation';
+import { AccountsPage } from './AccountsPage';
+import { CheckingPage } from './CheckingPage';
 
 const StyledLayout = styled.div`
   height: 100vh;
@@ -25,8 +26,12 @@ const StyledLayout = styled.div`
       flex: 5 1 500px;
       overflow-y: auto;
       height: 100%;
-      & > * {
+      & > main {
         max-width: 1080px;
+        padding-right: 10%;
+        @media only screen and (max-width: 730px) {
+          padding-right: 0;
+        }
       }
     }
   }
@@ -45,17 +50,25 @@ export function Layout() {
         {user && (
           <div className="page">
             <NavPanel />
-            <main className="content">
-              <Switch>
-                <Route path="/home">
-                  <HomePage />
-                </Route>
-                <Route path="/accounts"><NotImplementedPage /></Route>
-                <Route path="/giving"><NotImplementedPage /></Route>
-                <Route path="/payments"><NotImplementedPage /></Route>
-                <Route path="/cards"><NotImplementedPage /></Route>
-              </Switch>
-            </main>
+            <div className="content">
+              <main>
+                <Switch>
+                  <Route path="/home">
+                    <HomePage />
+                  </Route>
+                  <Route path="/accounts">
+                    <Switch>
+                      <Route exact path="/accounts"><AccountsPage /></Route>
+                      <Route path="/accounts/cheking"><CheckingPage /></Route>
+                      <Route path="/accounts/*"><NotImplementedPage /></Route>
+                    </Switch>
+                  </Route>
+                  <Route path="/giving"><NotImplementedPage /></Route>
+                  <Route path="/payments"><NotImplementedPage /></Route>
+                  <Route path="/cards"><NotImplementedPage /></Route>
+                </Switch>
+              </main>
+            </div>
           </div>
         )}
         <Redirect path="*" to="/login"></Redirect>

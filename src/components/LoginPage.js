@@ -21,7 +21,10 @@ const StyledLoginPage = styled.div`
       border-bottom: 2px solid ${mainColor};
     }
     .loginForm {
-      margin: 50px 0;
+      margin: 100px 0;
+    }
+    ${Button} {
+      margin-top: 100px;
     }
   }
 `;
@@ -59,11 +62,14 @@ export function LoginPage() {
               placeholder="Password"
             />
           </Label>
-          <Button onClick={(e) => {
-            e.preventDefault();
-            set({ login: '', password: '' });
-            dispatch(logIn(login, password))
-          }}>LOGIN</Button>
+          <Button
+            onClick={(e) => {
+              e.preventDefault();
+              set({ login: '', password: '' });
+              dispatch(logIn(login, password));
+            }}
+            disabled={login.length < 4 || password.length < 4}
+          >LOGIN</Button>
         </Form>
       </div>
     </StyledLoginPage>

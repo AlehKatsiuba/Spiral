@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import { mainColor } from "../styledConstants";
+import { mainColor, greyColor } from "../styledConstants";
 
 export const Button = styled.button`
   border-radius: 20px;
@@ -11,8 +11,11 @@ export const Button = styled.button`
   color: ${props => props.color || mainColor};
   background-color: ${props => props.backgroundColor || 'transparent'};
   transition: color 250ms, background-color 250ms;
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: ${props => props.color || mainColor};
     color: white;
+  }
+  &:disabled {
+    opacity: 0.5;
   }
 `;

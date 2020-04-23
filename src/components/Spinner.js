@@ -14,89 +14,89 @@ const StyledSpinner = styled.div`
     height: 50px;
     position: relative;
 
-    .sk-circle {
+    div {
       width: 100%;
       height: 100%;
       position: absolute;
       left: 0;
       top: 0;
+      &:before {
+        content: '';
+        display: block;
+        margin: 0 auto;
+        width: 15%;
+        height: 15%;
+        background-color: ${({ color }) => color || mainColor};
+        border-radius: 100%;
+        animation: ${circleFadeDelay} 1.2s infinite ease-in-out both;
+      }
     }
 
-    .sk-circle:before {
-      content: '';
-      display: block;
-      margin: 0 auto;
-      width: 15%;
-      height: 15%;
-      background-color: ${({ color }) => color || mainColor};
-      border-radius: 100%;
-      animation: ${circleFadeDelay} 1.2s infinite ease-in-out both;
-    }
-    .sk-circle2 {
+    div:nth-child(2) {
       transform: rotate(30deg);
+      &:before {
+        animation-delay: -1.1s; 
+      }
     }
-    .sk-circle3 {
+    div:nth-child(3) {
       transform: rotate(60deg);
+      &:before {
+        animation-delay: -1s; 
+      }
     }
-    .sk-circle4 {
+    div:nth-child(4) {
       transform: rotate(90deg);
+      &:before {
+        animation-delay: -0.9s; 
+      }
     }
-    .sk-circle5 {
+    div:nth-child(5) {
       transform: rotate(120deg);
+      &:before {
+        animation-delay: -0.8s; 
+      }
     }
-    .sk-circle6 {
+    div:nth-child(6) {
       transform: rotate(150deg);
+      &:before {
+        animation-delay: -0.7s; 
+      }
     }
-    .sk-circle7 {
+    div:nth-child(7) {
       transform: rotate(180deg);
+      &:before {
+        animation-delay: -0.6s; 
+      }
     }
-    .sk-circle8 {
+    div:nth-child(8) {
       transform: rotate(210deg);
+      &:before {
+        animation-delay: -0.5s; 
+      }
     }
-    .sk-circle9 {
+    div:nth-child(9) {
       transform: rotate(240deg);
+      &:before {
+        animation-delay: -0.4s; 
+      }
     }
-    .sk-circle10 {
+    div:nth-child(10) {
       transform: rotate(270deg);
+      &:before {
+        animation-delay: -0.3s; 
+      }
     }
-    .sk-circle11 {
-      transform: rotate(300deg); 
+    div:nth-child(11) {
+      transform: rotate(300deg);
+      &:before {
+        animation-delay: -0.2s; 
+      }
     }
-    .sk-circle12 {
+    div:nth-child(12) {
       transform: rotate(330deg); 
-    }
-    .sk-circle2:before {
-      animation-delay: -1.1s; 
-    }
-    .sk-circle3:before {
-      animation-delay: -1s; 
-    }
-    .sk-circle4:before {
-      animation-delay: -0.9s; 
-    }
-    .sk-circle5:before {
-      animation-delay: -0.8s; 
-    }
-    .sk-circle6:before {
-      animation-delay: -0.7s; 
-    }
-    .sk-circle7:before {
-      animation-delay: -0.6s; 
-    }
-    .sk-circle8:before {
-      animation-delay: -0.5s; 
-    }
-    .sk-circle9:before {
-      animation-delay: -0.4s;
-    }
-    .sk-circle10:before {
-      animation-delay: -0.3s;
-    }
-    .sk-circle11:before {
-      animation-delay: -0.2s;
-    }
-    .sk-circle12:before {
-      animation-delay: -0.1s;
+      &:before {
+        animation-delay: -0.1s; 
+      }
     }
   }
 `;
@@ -104,18 +104,18 @@ const StyledSpinner = styled.div`
 export function Spinner(props) {
   return (
     <StyledSpinner {...props}>
-      <div class="sk-circle1 sk-circle"></div>
-      <div class="sk-circle2 sk-circle"></div>
-      <div class="sk-circle3 sk-circle"></div>
-      <div class="sk-circle4 sk-circle"></div>
-      <div class="sk-circle5 sk-circle"></div>
-      <div class="sk-circle6 sk-circle"></div>
-      <div class="sk-circle7 sk-circle"></div>
-      <div class="sk-circle8 sk-circle"></div>
-      <div class="sk-circle9 sk-circle"></div>
-      <div class="sk-circle10 sk-circle"></div>
-      <div class="sk-circle11 sk-circle"></div>
-      <div class="sk-circle12 sk-circle"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </StyledSpinner>
   )
 }
