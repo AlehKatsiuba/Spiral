@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/Spiral/static/css/main.3c4d029c.chunk.css",
-    "main.js": "/Spiral/static/js/main.35cda141.chunk.js",
-    "main.js.map": "/Spiral/static/js/main.35cda141.chunk.js.map",
+    "main.js": "/Spiral/static/js/main.9cd16c58.chunk.js",
+    "main.js.map": "/Spiral/static/js/main.9cd16c58.chunk.js.map",
     "runtime-main.js": "/Spiral/static/js/runtime-main.8f87b0c1.js",
     "runtime-main.js.map": "/Spiral/static/js/runtime-main.8f87b0c1.js.map",
-    "static/js/2.f53f9ba0.chunk.js": "/Spiral/static/js/2.f53f9ba0.chunk.js",
-    "static/js/2.f53f9ba0.chunk.js.map": "/Spiral/static/js/2.f53f9ba0.chunk.js.map",
+    "static/js/2.b983d771.chunk.js": "/Spiral/static/js/2.b983d771.chunk.js",
+    "static/js/2.b983d771.chunk.js.map": "/Spiral/static/js/2.b983d771.chunk.js.map",
     "index.html": "/Spiral/index.html",
-    "precache-manifest.e4a74896264a728ea14375aa7d0b5ab3.js": "/Spiral/precache-manifest.e4a74896264a728ea14375aa7d0b5ab3.js",
+    "precache-manifest.80da1f1e2cacd8cef58b094052211660.js": "/Spiral/precache-manifest.80da1f1e2cacd8cef58b094052211660.js",
     "service-worker.js": "/Spiral/service-worker.js",
     "static/css/main.3c4d029c.chunk.css.map": "/Spiral/static/css/main.3c4d029c.chunk.css.map",
-    "static/js/2.f53f9ba0.chunk.js.LICENSE.txt": "/Spiral/static/js/2.f53f9ba0.chunk.js.LICENSE.txt",
-    "static/media/PayDay.jpg": "/Spiral/static/media/PayDay.bb2d3388.jpg"
+    "static/js/2.b983d771.chunk.js.LICENSE.txt": "/Spiral/static/js/2.b983d771.chunk.js.LICENSE.txt",
+    "static/media/PayDay.jpg": "/Spiral/static/media/PayDay.de491442.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.8f87b0c1.js",
-    "static/js/2.f53f9ba0.chunk.js",
+    "static/js/2.b983d771.chunk.js",
     "static/css/main.3c4d029c.chunk.css",
-    "static/js/main.35cda141.chunk.js"
+    "static/js/main.9cd16c58.chunk.js"
   ]
 }
