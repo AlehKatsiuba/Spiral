@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { Image } from './Image';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../store/actions';
-import spiralLogo from '../static/SpiralLogo.jpg'
+import spiralLogo from '../static/images/SpiralLogo.jpg'
 
 const StyledHeader = styled.header`
   display: flex;
@@ -70,7 +70,11 @@ export function Header({ className }) {
   return (
     <StyledHeader className={className}>
       <div className="header-logo">
-        <img src={spiralLogo} height="40px" alt="logo" onClick={() => history.push('/home')} />
+        <img
+          src={spiralLogo}
+          height="40px"
+          alt="logo"
+          onClick={() => history.push('/home')} />
         <div className="logo">Spiral</div>
       </div>
       <div className="header">

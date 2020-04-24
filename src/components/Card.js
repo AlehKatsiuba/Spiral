@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import { greyColor, mainColor, lightGreyColor } from "../styledConstants";
+import { greyColor, lightGreyColor } from "../styledConstants";
 import { Image } from './Image';
 
 export const Card = styled.div`

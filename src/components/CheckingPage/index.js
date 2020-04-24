@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Card, CardInfo, CardSubstrate, CardProperty, CardList } from './Card';
-import { apiSevice } from '../services/api';
-import { useApi } from '../hooks/useApi';
-import { Spinner } from './Spinner';
-import { mainColor, greyColor } from '../styledConstants';
-import { currencyFormat, dateFormat } from '../services/util';
-import { Input } from './Input';
-import { Button } from './Button';
+import { Card, CardInfo, CardSubstrate, CardProperty, CardList } from '../Card';
+import { apiSevice } from '../../services/api';
+import { useApi } from '../../hooks/useApi';
+import { Spinner } from '../Spinner';
+import { mainColor, greyColor } from '../../styledConstants';
+import { currencyFormat, dateFormat } from '../../services/util';
+import { Input } from '../Input';
+import { Button } from '../Button';
 
 const StyledTransactionsCard = styled.div`
   margin: 10px;

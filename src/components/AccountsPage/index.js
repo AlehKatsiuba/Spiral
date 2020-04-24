@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Card, CardInfo } from './Card';
-import { apiSevice } from '../services/api';
-import { useApi } from '../hooks/useApi';
-import { Spinner } from './Spinner';
-import { Image } from './Image';
-import { mainColor, greyColor, greenColor } from '../styledConstants';
+import { Card, CardInfo } from '../Card';
+import { apiSevice } from '../../services/api';
+import { useApi } from '../../hooks/useApi';
+import { Spinner } from '../Spinner';
+import { Image } from '../Image';
+import { mainColor, greyColor, greenColor } from '../../styledConstants';
 import { useHistory } from 'react-router-dom';
-import { currencyFormat } from '../services/util';
-import { Arrow } from './HomePage';
+import { currencyFormat } from '../../services/util';
+import { Arrow } from '../HomePage/AccountOverviewCard';
 
 const StyledAccountsPage = styled.div`
   .main {

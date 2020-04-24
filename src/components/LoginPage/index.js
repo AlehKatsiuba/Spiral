@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
-import { Button } from "./Button";
-import { mainColor } from "../styledConstants";
-import { Input, PasswordInput } from "./Input";
-import { Form, Label } from "./Form";
+import { Button } from "../Button";
+import { mainColor } from "../../styledConstants";
+import { Input, PasswordInput } from "../Input";
+import { Form, Label } from "../Form";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logIn } from "../store/actions";
-import { Spinner } from "./Spinner";
+import { logIn } from "../../store/actions";
+import { Spinner } from "../Spinner";
 
 const StyledLoginPage = styled.div`
   padding: 50px;
