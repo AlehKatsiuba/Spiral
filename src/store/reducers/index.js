@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import user from "./user";
+import authorisation from "./authorisation";
 import router from "./router";
 
 export default combineReducers({
   router,
-  user
+  authorisation
 });

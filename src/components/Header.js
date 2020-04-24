@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { mainColor } from '../styledConstants';
 import { useHistory } from 'react-router-dom';
 import { Image } from './Image';
-import { useDispatch } from 'react-redux';
-import { useAuthorisation } from '../hooks/useAuthorisation';
+import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../store/actions';
 import spiralLogo from '../static/SpiralLogo.jpg'
 
@@ -67,17 +66,11 @@ const defautAvatar = 'https://cdn0.iconfinder.com/data/icons/avatar-vol-2-4/512/
 export function Header({ className }) {
   const history = useHistory();
   const dispatch = useDispatch();
-  const user = useAuthorisation(state => state.user);
+  const user = useSelector(state => state.authorisation.user);
   return (
     <StyledHeader className={className}>
       <div className="header-logo">
-        <img src={spiralLogo} height="40px" />
-        {/* <Image
-          width='40px'
-          height="40px"
-          imageUrl={spiralLogo}
-          onClick={() => history.push('/home')}
-        /> */}
+        <img src={spiralLogo} height="40px" alt="logo" onClick={() => history.push('/home')} />
         <div className="logo">Spiral</div>
       </div>
       <div className="header">

@@ -7,9 +7,10 @@ import { HomePage } from './HomePage';
 import { NotImplementedPage } from './NotImplemented';
 import { Header } from './Header';
 import { NavPanel } from './NavPanel';
-import { useAuthorisation } from '../hooks/useAuthorisation';
 import { AccountsPage } from './AccountsPage';
 import { CheckingPage } from './CheckingPage';
+import { useSelector } from 'react-redux';
+import { PrivateRoute } from './PrivateRoute';
 
 const StyledLayout = styled.div`
   height: 100vh;
@@ -38,7 +39,6 @@ const StyledLayout = styled.div`
 `;
 
 export function Layout() {
-  const user = useAuthorisation(state => state.user);
   return (
     <StyledLayout>
       <Header>Spiral</Header>
@@ -46,8 +46,7 @@ export function Layout() {
         <Route path="/login">
           <LoginPage />
         </Route>
-        <Redirect exact path="/" to="/login"></Redirect>
-        {user && (
+        <PrivateRoute path="/">
           <div className="page">
             <NavPanel />
             <div className="content">
@@ -66,12 +65,12 @@ export function Layout() {
                   <Route path="/giving"><NotImplementedPage /></Route>
                   <Route path="/payments"><NotImplementedPage /></Route>
                   <Route path="/cards"><NotImplementedPage /></Route>
+                  <Redirect path="*" to="/home"></Redirect>
                 </Switch>
               </main>
             </div>
           </div>
-        )}
-        <Redirect path="*" to="/login"></Redirect>
+        </PrivateRoute>
       </Switch>
     </StyledLayout>
   )

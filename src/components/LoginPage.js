@@ -7,7 +7,7 @@ import { Form, Label } from "./Form";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../store/actions";
-import { useAuthorisation } from "../hooks/useAuthorisation";
+import { Spinner } from "./Spinner";
 
 const StyledLoginPage = styled.div`
   padding: 50px;
@@ -33,10 +33,10 @@ export function LoginPage() {
   const [{ login, password }, set] = useState({ login: '', password: '' });
   const history = useHistory();
   const dispatch = useDispatch();
-  const user = useAuthorisation(state => state.user);
+  const { loggingIn, loggedIn } = useSelector(state => state.authorisation);
 
   useEffect(() => {
-    if (user) {
+    if (loggedIn) {
       history.push('/home');
     }
   });
@@ -53,6 +53,7 @@ export function LoginPage() {
               value={login}
               onChange={({ target: { value } }) => set({ login: value, password })}
               placeholder="Your email address"
+              disabled={loggingIn}
             />
           </Label>
           <Label title="Password">
@@ -60,6 +61,7 @@ export function LoginPage() {
               value={password}
               onChange={({ target: { value } }) => set({ login, password: value })}
               placeholder="Password"
+              disabled={loggingIn}
             />
           </Label>
           <Button
@@ -68,8 +70,9 @@ export function LoginPage() {
               set({ login: '', password: '' });
               dispatch(logIn(login, password));
             }}
-            disabled={login.length < 4 || password.length < 4}
+            disabled={login.length < 4 || password.length < 4 || loggingIn}
           >LOGIN</Button>
+          {loggingIn && <Spinner />}
         </Form>
       </div>
     </StyledLoginPage>

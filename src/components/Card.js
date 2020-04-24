@@ -44,6 +44,7 @@ const StyledCardInfo = styled.div`
     font-size: 24px;
     flex: 1 0;
     text-align: end;
+    margin-left: 15px;
     .arrow {
       color: ${mainColor};
       font-weight: bold;
