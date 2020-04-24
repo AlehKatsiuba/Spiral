@@ -8,6 +8,7 @@ import { Image } from './Image';
 import { mainColor, greyColor, greenColor } from '../styledConstants';
 import { useHistory } from 'react-router-dom';
 import { currencyFormat } from '../services/util';
+import { Arrow } from './HomePage';
 
 const StyledAccountsPage = styled.div`
   .main {
@@ -71,7 +72,7 @@ function SSI({ value }) {
 }
 
 export function AccountsPage() {
-  const { data: balances, isLoading } = useApi(apiSevice.fetchAccounts, []);
+  const { data: balances, isLoading } = useApi(apiSevice.fetchAccounts);
   const totalCash = (balances || []).reduce((sum, balance) => sum + balance.count, 0);
   const history = useHistory();
   return (
@@ -115,7 +116,7 @@ export function AccountsPage() {
               <CardInfo
                 title={name}
                 subtitle={type}
-                value={currencyFormat(count)}
+                value={<>{currencyFormat(count)} <Arrow /></>}
                 onClick={() => history.push(`/accounts/${name.toLowerCase()}`)}
               />
               {ssi ? <SSI value={ssi} /> : null}

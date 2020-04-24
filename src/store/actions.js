@@ -1,7 +1,5 @@
 import {
   LOGIN_REQUESTED,
-  LOGIN_SUCCEEDED,
-  LOGIN_FAILED,
   LOGOUT,
 } from "./types";
 

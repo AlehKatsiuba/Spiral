@@ -7,7 +7,7 @@ const circleFadeDelay = keyframes`
   40% { opacity: 1; } 
 `;
 
-const StyledSpinner = styled.div`
+export const Spinner = styled(SpinnerComponent)`
   & {
     margin: 100px auto;
     width: 50px;
@@ -101,9 +101,9 @@ const StyledSpinner = styled.div`
   }
 `;
 
-export function Spinner(props) {
+export function SpinnerComponent(props) {
   return (
-    <StyledSpinner {...props}>
+    <div {...props}>
       <div></div>
       <div></div>
       <div></div>
@@ -116,6 +116,6 @@ export function Spinner(props) {
       <div></div>
       <div></div>
       <div></div>
-    </StyledSpinner>
+    </div>
   )
 }

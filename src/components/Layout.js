@@ -9,7 +9,6 @@ import { Header } from './Header';
 import { NavPanel } from './NavPanel';
 import { AccountsPage } from './AccountsPage';
 import { CheckingPage } from './CheckingPage';
-import { useSelector } from 'react-redux';
 import { PrivateRoute } from './PrivateRoute';
 
 const StyledLayout = styled.div`

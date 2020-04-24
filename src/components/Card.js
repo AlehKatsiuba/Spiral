@@ -2,8 +2,6 @@ import React from "react";
 import styled from 'styled-components';
 import { greyColor, mainColor, lightGreyColor } from "../styledConstants";
 import { Image } from './Image';
-import { Link } from "./Link";
-import { currencyFormat } from "../services/util";
 
 export const Card = styled.div`
   display: flex;
@@ -45,10 +43,6 @@ const StyledCardInfo = styled.div`
     flex: 1 0;
     text-align: end;
     margin-left: 15px;
-    .arrow {
-      color: ${mainColor};
-      font-weight: bold;
-    }
   }
 `;
 
@@ -72,7 +66,7 @@ export function CardInfo({ title, subtitle, value, image, ...rest }) {
         <div className="subtitle">{subtitle}</div>
       </div>
       {value && <div className="value">
-        {value}<span className="arrow">﹥</span>
+        {value}
       </div>}
     </StyledCardInfo>
   );

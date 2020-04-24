@@ -21,7 +21,15 @@ const StyledLoginPage = styled.div`
       border-bottom: 2px solid ${mainColor};
     }
     .loginForm {
+      position: relative;
       margin: 100px 0;
+      ${Spinner} {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
     }
     ${Button} {
       margin-top: 100px;

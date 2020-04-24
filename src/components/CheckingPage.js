@@ -4,7 +4,7 @@ import { Card, CardInfo, CardSubstrate, CardProperty, CardList } from './Card';
 import { apiSevice } from '../services/api';
 import { useApi } from '../hooks/useApi';
 import { Spinner } from './Spinner';
-import { mainColor, greyColor, greenColor } from '../styledConstants';
+import { mainColor, greyColor } from '../styledConstants';
 import { currencyFormat, dateFormat } from '../services/util';
 import { Input } from './Input';
 import { Button } from './Button';
@@ -13,9 +13,6 @@ const StyledTransactionsCard = styled.div`
   margin: 10px;
   .date {
     padding: 5px 15px;
-  }
-  ${Card} {
-    
   }
 `;
 
@@ -122,7 +119,7 @@ const StyledCheckingPage = styled.div`
 
 export function CheckingPage() {
   const [search, setSearch] = useState('');
-  const { data: days, isLoading } = useApi(apiSevice.fetchChekingTransactions, []);
+  const { data: days, isLoading } = useApi(apiSevice.fetchChekingTransactions);
   const totalCash = 1500.2;
 
   const searchString = search.replace(/\\/g, '\\\\');

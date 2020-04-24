@@ -1,6 +1,5 @@
-import React from "react";
 import styled from 'styled-components';
-import { mainColor, greyColor } from "../styledConstants";
+import { mainColor } from "../styledConstants";
 
 export const Button = styled.button`
   border-radius: 20px;

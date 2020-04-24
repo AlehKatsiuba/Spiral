@@ -9,6 +9,7 @@ import { apiSevice } from "../services/api";
 import { Spinner } from "./Spinner";
 import PayDayPic from "../static/PayDay.jpg";
 import { currencyFormat } from "../services/util";
+import { useHistory } from "react-router-dom";
 
 const CardsDashboard = styled.div`
   display: flex;
@@ -69,8 +70,17 @@ const StyledAccountOverviewCard = styled(CardContent)`
   }
 `;
 
+export const Arrow = styled.span`
+  color: ${mainColor};
+  font-weight: bold;
+  &::after {
+    content: '﹥'
+  }
+`;
+
 export function AccountOverviewCard() {
-  const { data: balances, isLoading } = useApi(apiSevice.fetchAccounts, []);
+  const { data: balances, isLoading } = useApi(apiSevice.fetchAccounts);
+  const history = useHistory();
   const totalCash = (balances || []).reduce((sum, balance) => sum + balance.count, 0);
   return (
     <Card>
@@ -87,7 +97,8 @@ export function AccountOverviewCard() {
               key={id}
               title={name}
               subtitle={type}
-              value={currencyFormat(count)}
+              value={<>{currencyFormat(count)}<Arrow /></>}
+              onClick={() => history.push(`/accounts/${name.toLowerCase()}`)}
             />
           )}
         </CardList>
@@ -118,7 +129,7 @@ export function GivingImpactCard({ titleImage, backgroundImage, title, subtitle,
 };
 
 export function RecentTransactionsCard() {
-  const { data: transactions, isLoading } = useApi(apiSevice.fetchAccounts, []);
+  const { data: transactions, isLoading } = useApi(apiSevice.fetchAccounts);
   return (
     <Card>
       <CardInfo title="Recent Transactions" subtitle="Jun 29" backgroundColor={mainColor} fontColor="white" />
@@ -147,7 +158,7 @@ const GreenText = styled.span`
 `;
 
 export function PayDayCard() {
-  const { data: payDay, isLoading } = useApi(apiSevice.fetchPayDay, []);
+  const { data: payDay, isLoading } = useApi(apiSevice.fetchPayDay);
   return (
     <Card>
       <CardInfo title="It's your payday" subtitle="Jul 31" fontColor="white" backgroundColor={greenColor} />
@@ -169,7 +180,7 @@ export function PayDayCard() {
 }
 
 export function UpcomingBigPaymentsCard() {
-  const { data: payments, isLoading } = useApi(apiSevice.fetchAccounts, []);
+  const { data: payments, isLoading } = useApi(apiSevice.fetchAccounts);
   return (
     <Card>
       <CardInfo

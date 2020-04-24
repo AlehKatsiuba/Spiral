@@ -1,8 +1,7 @@
 import { accounts, user, payDay, chekingTransactions } from "./mocks";
-import { delayPromise, generateInt, emulateServerResponse } from "./util";
+import { emulateServerResponse } from "./util";
 
 class ApiSevice {
-  constructor() { }
 
   logIn(login, password) {
     if (login === 'test@test.com' && password === 'test') {

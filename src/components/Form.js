@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import { mainColor, greyColor } from "../styledConstants";
+import { greyColor } from "../styledConstants";
 import { Input } from "./Input";
 
 export const Form = styled.form`
