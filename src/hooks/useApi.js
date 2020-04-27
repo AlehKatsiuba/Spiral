@@ -4,10 +4,9 @@ export function useApi(fetchApi, ...options) {
   const [data, setData] = useState({ data: null, isLoading: true });
 
   useEffect(() => {
-    setData({ data, isLoading: true });
+    setData({ ...data, isLoading: true });
     fetchApi(...options)
-      .then(data => setData({ data, isLoading: false }));
+      .then(res => setData({ data: res, isLoading: false }));
   }, [fetchApi, ...options]);
-
   return data;
 }
