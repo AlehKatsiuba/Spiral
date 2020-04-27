@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "744e32330e7d2903882806c1e921e74a",
+    "revision": "3ad5c2046ce4d29451131c4680631bb5",
     "url": "/Spiral/index.html"
   },
   {
-    "revision": "f3a16511303afbdc1667",
+    "revision": "10ccbcab506e9316247e",
     "url": "/Spiral/static/css/main.3c4d029c.chunk.css"
   },
   {
-    "revision": "3f54af0c817fc4abbf98",
-    "url": "/Spiral/static/js/2.df2c72b5.chunk.js"
+    "revision": "1a537a58dcaa9a4b34bc",
+    "url": "/Spiral/static/js/2.ce9d6215.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/Spiral/static/js/2.df2c72b5.chunk.js.LICENSE.txt"
+    "url": "/Spiral/static/js/2.ce9d6215.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f3a16511303afbdc1667",
-    "url": "/Spiral/static/js/main.e188bb28.chunk.js"
+    "revision": "10ccbcab506e9316247e",
+    "url": "/Spiral/static/js/main.fd0037ed.chunk.js"
   },
   {
     "revision": "efd2cfd10702e87bea13",
@@ -34,5 +34,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "8029474f87657d4794eb89f2c5f8c622",
     "url": "/Spiral/static/media/children-learn-to-make-friends.8029474f.jpg"
+  },
+  {
+    "revision": "2086744a63590aa5f9f4c347c7dda66f",
+    "url": "/Spiral/static/media/search.2086744a.svg"
   }
 ]);
