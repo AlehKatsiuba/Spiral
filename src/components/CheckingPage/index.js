@@ -1,79 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Card, CardInfo, CardSubstrate, CardProperty, CardList } from '../Card';
 import { apiSevice } from '../../services/api';
 import { useApi } from '../../hooks/useApi';
 import { Spinner } from '../Spinner';
 import { mainColor, greyColor } from '../../styledConstants';
-import { currencyFormat, dateFormat } from '../../services/util';
-import { Input } from '../Input';
+import { currencyFormat } from '../../services/util';
+import { Input, SearchInput } from '../Input';
 import { Button } from '../Button';
-
-const StyledTransactionsCard = styled.div`
-  margin: 10px;
-  .date {
-    padding: 5px 15px;
-  }
-`;
-
-const HighlightedSubstr = styled.span`
-  background-color: ${mainColor};
-  color: white;
-`;
-
-function HighlightedSubstring({ string = '', regExp }) {
-  const matchedSubstrings = Array.from(string.matchAll(regExp));
-
-  if (!matchedSubstrings.length || regExp.test('')) {
-    return string;
-  }
-
-  let caret = 0;
-  let substrings = matchedSubstrings.reduce((arr, matched) => {
-    const part = arr.concat([
-      <span>{string.substring(caret, matched.index)}</span>,
-      <HighlightedSubstr>{matched[0]}</HighlightedSubstr>
-    ]);
-    caret = matched.index + matched[0].length;
-    return part;
-  }, []).concat(<span>{string.substring(caret, string.length)}</span>);
-  return substrings;
-}
-
-export function TransactionsCard({ date, balance, transactions = [], regExp }) {
-
-  const filteredTransactions = regExp.test('') ?
-    transactions :
-    transactions.filter(i => i.name.match(regExp) || i.type.match(regExp));
-
-  if (!filteredTransactions.length) {
-    return null;
-  }
-
-  return (
-    <StyledTransactionsCard>
-      <div className="date">{dateFormat(date)}</div>
-      <Card>
-        <CardSubstrate>
-          <CardProperty>
-            <div>End day balance</div>
-            <div>{currencyFormat(balance)}</div>
-          </CardProperty>
-          <CardList>
-            {filteredTransactions.map(({ id, name, type, amount }) =>
-              <CardInfo
-                key={id}
-                title={<HighlightedSubstring string={name} regExp={regExp} />}
-                subtitle={<HighlightedSubstring string={type} regExp={regExp} />}
-                value={currencyFormat(amount)}
-              />
-            )}
-          </CardList>
-        </CardSubstrate>
-      </Card>
-    </StyledTransactionsCard>
-  )
-}
+import { TransactionsCard } from './TransactionsCard';
 
 const StyledCheckingPage = styled.div`
   .main {
@@ -119,7 +53,7 @@ const StyledCheckingPage = styled.div`
 
 export function CheckingPage() {
   const [search, setSearch] = useState('');
-  const { data: days, isLoading } = useApi(apiSevice.fetchChekingTransactions);
+  const { data: days, isLoading } = useApi(apiSevice.fetchChekingTransactions, search);
   const totalCash = 1500.2;
 
   const searchString = search.replace(/\\/g, '\\\\');
@@ -137,7 +71,7 @@ export function CheckingPage() {
         </h3>
         </div>
         <div className="search">
-          <Input
+          <SearchInput
             value={search}
             onChange={({ target: { value } }) => setSearch(value)}
             placeholder="Search transactions"
