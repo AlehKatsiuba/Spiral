@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/Spiral/static/css/main.3c4d029c.chunk.css",
-    "main.js": "/Spiral/static/js/main.fd0037ed.chunk.js",
-    "main.js.map": "/Spiral/static/js/main.fd0037ed.chunk.js.map",
-    "runtime-main.js": "/Spiral/static/js/runtime-main.8f87b0c1.js",
-    "runtime-main.js.map": "/Spiral/static/js/runtime-main.8f87b0c1.js.map",
-    "static/js/2.ce9d6215.chunk.js": "/Spiral/static/js/2.ce9d6215.chunk.js",
-    "static/js/2.ce9d6215.chunk.js.map": "/Spiral/static/js/2.ce9d6215.chunk.js.map",
+    "main.css": "/Spiral/static/css/main.cfc31fb5.chunk.css",
+    "main.js": "/Spiral/static/js/main.357cd3e6.chunk.js",
+    "main.js.map": "/Spiral/static/js/main.357cd3e6.chunk.js.map",
+    "runtime-main.js": "/Spiral/static/js/runtime-main.e1d8559d.js",
+    "runtime-main.js.map": "/Spiral/static/js/runtime-main.e1d8559d.js.map",
+    "static/js/2.361ce5b7.chunk.js": "/Spiral/static/js/2.361ce5b7.chunk.js",
+    "static/js/2.361ce5b7.chunk.js.map": "/Spiral/static/js/2.361ce5b7.chunk.js.map",
     "index.html": "/Spiral/index.html",
-    "precache-manifest.c49616967958f6574b882d3ef07d26c8.js": "/Spiral/precache-manifest.c49616967958f6574b882d3ef07d26c8.js",
+    "precache-manifest.18923ed2d872263684af5d6f772b0525.js": "/Spiral/precache-manifest.18923ed2d872263684af5d6f772b0525.js",
     "service-worker.js": "/Spiral/service-worker.js",
-    "static/css/main.3c4d029c.chunk.css.map": "/Spiral/static/css/main.3c4d029c.chunk.css.map",
-    "static/js/2.ce9d6215.chunk.js.LICENSE.txt": "/Spiral/static/js/2.ce9d6215.chunk.js.LICENSE.txt",
+    "static/css/main.cfc31fb5.chunk.css.map": "/Spiral/static/css/main.cfc31fb5.chunk.css.map",
+    "static/js/2.361ce5b7.chunk.js.LICENSE.txt": "/Spiral/static/js/2.361ce5b7.chunk.js.LICENSE.txt",
     "static/media/PayDay.jpg": "/Spiral/static/media/PayDay.de491442.jpg",
     "static/media/SpiralLogo.jpg": "/Spiral/static/media/SpiralLogo.bfaaa656.jpg",
     "static/media/children-learn-to-make-friends.jpg": "/Spiral/static/media/children-learn-to-make-friends.8029474f.jpg",
     "static/media/search.svg": "/Spiral/static/media/search.2086744a.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.8f87b0c1.js",
-    "static/js/2.ce9d6215.chunk.js",
-    "static/css/main.3c4d029c.chunk.css",
-    "static/js/main.fd0037ed.chunk.js"
+    "static/js/runtime-main.e1d8559d.js",
+    "static/js/2.361ce5b7.chunk.js",
+    "static/css/main.cfc31fb5.chunk.css",
+    "static/js/main.357cd3e6.chunk.js"
   ]
 }
